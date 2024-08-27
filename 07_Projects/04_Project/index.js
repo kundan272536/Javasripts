@@ -1,6 +1,8 @@
 const randomNum = parseInt(Math.random() * 100 + 1);
 // console.log(randomNum);
 
+
+
 const submit = document.querySelector("#subt");
 const userInput = document.querySelector("#guessField");
 const guessSlot = document.querySelector("#guesses");
@@ -49,7 +51,7 @@ function checkGuess(guess) {
   }else if(guess<randomNum){
     displayMessage(`Your guessed is too low`)
   }else if(guess>randomNum){
-    displayMessage(`Your guess is too high`)
+    displayMessage(`Your gues is too high`)
   }
 }
 
