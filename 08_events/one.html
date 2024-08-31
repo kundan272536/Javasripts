@@ -1,33 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Html Events</title>
     <style>
-        img{
-            height: 400px;
-            width: 400px;
-        }
+      img {
+        height: 400px;
+        width: 400px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h2>Events Handlers</h2>
-    <ul>
-        <li><img id="first_image" src="https://images.pexels.com/photos/27077976/pexels-photo-27077976/free-photo-of-currants-on-a-table.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt=""></li>
-        <li><img id="second_image" src="https://images.pexels.com/photos/27862928/pexels-photo-27862928/free-photo-of-harvested-rose.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt=""></li>
-        <li><img id="third_image" src="https://images.pexels.com/photos/27797571/pexels-photo-27797571/free-photo-of-a-woman-in-a-basketball-jersey-is-holding-up-her-hand.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt=""></li>
-        <li><img id="four_image" src="https://images.pexels.com/photos/26842786/pexels-photo-26842786/free-photo-of-passenger-ship-near-perito-moreno-glacier-in-argentina.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt=""></li>
-        <li><img id="five_image" src="https://images.pexels.com/photos/24536423/pexels-photo-24536423/free-photo-of-partly-frozen-lake-near-snowy-mountain-with-fog.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt=""></li>
-        <li><img id="six_image" src="https://images.pexels.com/photos/16734629/pexels-photo-16734629/free-photo-of-street-lamp-and-crosswalk.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt=""></li>
+    <ul id="images">
+      <li>
+        <img
+          id="first_image"
+          src="https://images.pexels.com/photos/27077976/pexels-photo-27077976/free-photo-of-currants-on-a-table.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+          alt=""
+        />
+      </li>
+      <li>
+        <img
+          id="second_image"
+          src="https://images.pexels.com/photos/27862928/pexels-photo-27862928/free-photo-of-harvested-rose.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+          alt=""
+        />
+      </li>
+      <li>
+        <img
+          id="third_image"
+          src="https://images.pexels.com/photos/27797571/pexels-photo-27797571/free-photo-of-a-woman-in-a-basketball-jersey-is-holding-up-her-hand.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+          alt=""
+        />
+      </li>
+      <li>
+        <img
+          id="four_image"
+          src="https://images.pexels.com/photos/26842786/pexels-photo-26842786/free-photo-of-passenger-ship-near-perito-moreno-glacier-in-argentina.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+          alt=""
+        />
+      </li>
+      <li>
+        <img
+          id="five_image"
+          src="https://images.pexels.com/photos/24536423/pexels-photo-24536423/free-photo-of-partly-frozen-lake-near-snowy-mountain-with-fog.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+          alt=""
+        />
+      </li>
+      <li>
+        <img
+          id="six_image"
+          src="https://images.pexels.com/photos/16734629/pexels-photo-16734629/free-photo-of-street-lamp-and-crosswalk.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+          alt=""
+        />
+      </li>
+      <li><a href="https://www.google.com/" id="google">Google</a></li>
     </ul>
-</body>
-<script>
-    document.getElementById('first_image').onclick=function(){
-        alert("frst image");
+  </body>
+  <script>
+    // Events
+    //type,timestamp,defaulPrevented,
+    //target,toElement,srcElement,currentTarget,
+    //clientX,clientY,screenX,screeY
+    //altkey,ctrlkey,shiftkey,keycode
+    // document.getElementById('first_image').onclick=function(){
+    //     alert("frst image");
+    // }
+//     document.getElementById("images").addEventListener(
+//       "click",
+//       function (e) {
+//         console.log("Inside the image");
+//       },false
+//     );
+//     document.getElementById("first_image").addEventListener(
+//       "click",
+//       function (e) {
+//         e.stopPropagation()//It is used for not propgate from the bottom to top
+//         console.log("First images clicked");
+//       },false
+      
+//     );
+//    document.getElementById('google').addEventListener('click',function(e){
+//     e.preventDefault();
+//     e.stopPropagation();
+//     console.log("Inside the google");
+    
+//    })
+
+
+   document.querySelector('#images').addEventListener('click',function(e){
+    console.log(e.target.tagName);
+    if(e.target.tagName==='IMG'){
+        console.log(e.target.id);
+        
+        let removeIt=e.target.parentNode;
+        removeIt.remove();
     }
-    document.getElementById('first_image').addEventListener('click',function(){
-        alert("first image")
-    })
-</script>
+   
+   });
+   
+  </script>
 </html>
