@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Closure</title>
+  </head>
+  <body>
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+  </body>
+  <script>
+    //----------------------------- Lexical------------------------//
+    // function init() {
+    //   let name = "Mozilla"; // name is a local variable created by init
+    //   function displayName() {
+    //     console.log(name); // use variable declared in the parent function
+    //   }
+    //   displayName();
+    // }
+    // init();
+    // console.log(name);
+
+    function outer() {
+      let username = "Kundan";
+      // console.log("Secret",secret);
+
+      function inner() {
+        console.log("InnerOne", username);
+      }
+      function innerTwo() {
+        let secret = "123";
+        console.log("InnerTwo", username);
+
+        console.log("Secret", secret);
+      }
+      inner();
+      innerTwo();
+    }
+    outer();
+    //---------------------Closure--------------------------//
+    function makeFunc() {
+      const name = "Mozilla";
+      console.log(a);
+      
+      function displayName() {
+        var a=123;
+        console.log(name);
+      }
+      return displayName;
+    }
+
+    const myFunc = makeFunc();
+    myFunc();
+  </script>
+  <script>
+    document.getElementById("orange").onclick=function(){
+        document.body.style.backgroundColor=`orange`
+    }
+    document.getElementById("green").onclick=function(){
+        document.body.style.backgroundColor=`green`
+    }
+
+    function clickHandler(color){
+        // document.body.style.backgroundColor=`${color}`
+      return function(){
+         document.body.style.backgroundColor=`${color}`
+       }
+    }
+    document.getElementById('orange').onclick=clickHandler("orange")
+    document.getElementById('green').onclick=clickHandler("green")
+
+  </script>
+</html>
